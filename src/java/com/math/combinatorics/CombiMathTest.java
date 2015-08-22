@@ -20,6 +20,7 @@ public class CombiMathTest {
         System.out.println("(10! / ((10-6)! * 6!)) * 6! = " // 151200
                 + numberOfPlacements(10, 6));
 
+        System.out.println(numberOfPlacements(29, 15));
 
 
     }
