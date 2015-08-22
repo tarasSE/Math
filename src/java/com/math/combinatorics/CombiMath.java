@@ -3,25 +3,80 @@ package com.math.combinatorics;
 /**
  * Created by user on 22.08.15.
  */
-public class CombiMath implements CombiMathInterface {
+public class CombiMath {
 
-    public long factorial(long num) {
-        return (num == 0) ? 1 : num * factorial(num - 1);
+    /**Факториал
+     * Произведение всех натуральных чисел от 1 до n.
+     *
+     * @param num <= 20
+     * @return long
+     */
+    public static long factorial(long num) {
+        return ((num == 0) ? 1 : num * factorial(num - 1));
     }
 
 
-    @Override
-    public long numberOfPermutations(long n) {
+    /** Расчет количества всех возможных перестановок n членов.
+     * @param n <= 20
+     * @return long
+     */
+
+    public static long numberOfPermutations(long n) {
         return factorial(n);
     }
 
-    @Override
-    public long numberOfCombinations(long n, long m) {
-        return (factorial(n))/(factorial(n-m)*factorial(m));
+    /**Расчет всех возможных комбинайций, с помощью которых
+     * можно выбрать m объектов из n объектов. (Без учета расположения объектов в выборке)
+     *
+     * Расчеты производятся путем сокращения дроби на максимальный факториал знаменателя ( (n-m)! или m! )
+     * с целью экономии памяти во время промежуточных расчетов.
+     *
+     * @param n <= 20
+     * @param m <= 20
+     * @return long
+     * */
+
+    public static long numberOfCombinations(long n, long m) {
+        // Определяем наибольший факториал знаменателя
+        if(m <= n-m){ // наибольший факториал = (n-m)
+            long numerator = (n-m) + 1; // переменная для расчета числителя
+            int temp = (int) (n-m) + 1; // временная переменная для умножения в числителе
+            int count = (int) m-1;
+            for (int i=0; i<count; i++){
+                numerator*= ++temp;
+            }
+            // числитель, сокращенный до вида a * (a+1) * (a+2) * ... * (a+k), где k = m
+            // делим на оставшийся знаменатель m!
+            return numerator/factorial(m);
+        }
+        // Выполняются те же действия, что и для предыдущего условия
+        else if (m > n-m){ //наибольший факториал = m
+            long numerator = m+1;
+            int temp = (int) m+1;
+            int count = (int) (n-m)-1;
+
+            for (int i=0; i<count; i++){
+                numerator*= ++temp;
+            }
+
+            return numerator/factorial(n-m);
+        }
+        return 0;
     }
 
-    @Override
-    public long numberOfPlacements(long n, long m) {
-        return (factorial(n)*factorial(m))/(factorial(n-m)*factorial(m));
+    /**Расчет всех возможных комбинайций, с помощью которых
+     * можно выбрать m объектов из n объектов, учитывая расположения объектов в выборке.
+     *
+     * Расчет производится так же как и без учёта расположения в выборке и
+     * результат умножается на m!(все возможные расположения обьектов в выборке).
+     *
+     * @param n <= 20
+     * @param m <= 20
+     * @return long
+     * */
+
+    public static long numberOfPlacements(long n, long m) {
+        return numberOfCombinations(n, m)*factorial(m);
     }
+
 }
