@@ -1,10 +1,8 @@
-package simple_numbers.simple_numbers;
+package com.math.simplenumbers;
 
 import java.util.TreeSet;
 
-/**
- * Created by user on 21.08.15.
- */
+
 public class SimpleNumbersFinder implements SimpleNumbersFinderInterface {
 
     public TreeSet<Integer> findSimplesOnInterval(int n) {
