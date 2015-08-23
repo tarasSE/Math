@@ -6,9 +6,8 @@ import com.math.simplenumbers.printer.NumbersPrinterImpl;
 import java.util.TreeSet;
 
 
-
 public class SimpleNumbersFinderTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         SimpleNumbersFinder simpleNumbersFinder = new SimpleNumbersFinderImpl();
         NumbersPrinter np = new NumbersPrinterImpl();
@@ -16,6 +15,6 @@ public class SimpleNumbersFinderTest {
 
         np.print(simples);
 
-        }
     }
+}
 
