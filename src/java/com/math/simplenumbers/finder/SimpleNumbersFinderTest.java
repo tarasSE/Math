@@ -11,9 +11,11 @@ public class SimpleNumbersFinderTest {
 
         SimpleNumbersFinder simpleNumbersFinder = new SimpleNumbersFinderImpl();
         NumbersPrinter np = new NumbersPrinterImpl();
-        TreeSet<Integer> simples = (TreeSet<Integer>) simpleNumbersFinder.findSimplesOnInterval(1000);
+        TreeSet<Integer> simples = (TreeSet) simpleNumbersFinder.findSimplesOnInterval(1000);
+        TreeSet<Integer> simplesOnIntervalN = (TreeSet) simpleNumbersFinder.findSimplesOnInterval(10, 20);
 
         np.print(simples);
+        np.print(simplesOnIntervalN);
 
     }
 }

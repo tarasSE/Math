@@ -19,6 +19,30 @@ public class SimpleNumbersFinderImpl implements SimpleNumbersFinder {
         return getSimplesSet();
     }
 
+    @Override
+    public Set<Integer> findSimplesOnInterval(int start, int n) {
+        simplesSet.add(1);
+        simplesSet.add(2);
+
+        Set<Integer> simplesOnIntervalN = new TreeSet<>();
+
+        for (int i = 3; i <= n; i++) {
+            if (isSimple(i)) {
+                simplesSet.add(i);
+            }
+        }
+
+        for (Integer simple : simplesSet) {
+            if (simple >= n) break;
+            if (simple >= start) {
+                simplesOnIntervalN.add(simple);
+            }
+
+        }
+
+        return simplesOnIntervalN;
+    }
+
     private boolean isSimple(int number) {
         if (number % 2 == 0 &&
                 number != 2) {
@@ -34,10 +58,10 @@ public class SimpleNumbersFinderImpl implements SimpleNumbersFinder {
         return true;
     }
 
-    public TreeSet<Integer> getSimplesSet() {
+    public Set<Integer> getSimplesSet() {
         return simplesSet;
     }
 
-    private TreeSet<Integer> simplesSet = new TreeSet<Integer>();
+    private Set<Integer> simplesSet = new TreeSet<>();
 
 }
