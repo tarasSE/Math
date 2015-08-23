@@ -3,7 +3,7 @@ package com.math.simplenumbers.printer;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public class NumbersPrinterImpl implements NumbersPrinter{
+public class NumbersPrinterImpl implements NumbersPrinter {
 
 
     @Override
@@ -13,18 +13,17 @@ public class NumbersPrinterImpl implements NumbersPrinter{
         int minNumberLength = numbers.first().toString().length();
         int maxLength = 0;
 
-        if (maxNumberLength >= minNumberLength){
+        if (maxNumberLength >= minNumberLength) {
             maxLength = maxNumberLength;
-        }
-        else {
+        } else {
             maxLength = minNumberLength;
         }
 
         int counter = 1;
         for (Integer number : numbers) {
             int currentSimpleLengh = number.toString().length();
-            int countOfSpaces = maxLength-currentSimpleLengh;
-            for (int i=0; i <= countOfSpaces; i++){
+            int countOfSpaces = maxLength - currentSimpleLengh;
+            for (int i = 0; i <= countOfSpaces; i++) {
                 stringBuilder.append(" ");
             }
             stringBuilder.append(number);
@@ -48,29 +47,27 @@ public class NumbersPrinterImpl implements NumbersPrinter{
         int minElementLength = 0;
         int maxLength = 0;
 
-        for (Integer number : numbers){
-            if (number.toString().length() > maxElementLength){
+        for (Integer number : numbers) {
+            if (number.toString().length() > maxElementLength) {
                 maxElementLength = number;
-            }
-            else {
-                if (number.toString().length() < minElementLength){
+            } else {
+                if (number.toString().length() < minElementLength) {
                     minElementLength = number;
                 }
             }
         }
 
-        if (maxElementLength >= minElementLength){
+        if (maxElementLength >= minElementLength) {
             maxLength = maxElementLength;
-        }
-        else {
+        } else {
             maxLength = minElementLength;
         }
 
         int counter = 1;
         for (Integer number : numbers) {
             int currentSimpleLengh = number.toString().length();
-            int countOfSpaces = maxLength-currentSimpleLengh;
-            for (int i=0; i <= countOfSpaces; i++){
+            int countOfSpaces = maxLength - currentSimpleLengh;
+            for (int i = 0; i <= countOfSpaces; i++) {
                 stringBuilder.append(" ");
             }
             stringBuilder.append(number);
