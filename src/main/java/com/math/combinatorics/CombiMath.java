@@ -1,8 +1,6 @@
 package com.math.combinatorics;
 
-/**
- * Created by user on 22.08.15.
- */
+
 public class CombiMath {
 
     /**
