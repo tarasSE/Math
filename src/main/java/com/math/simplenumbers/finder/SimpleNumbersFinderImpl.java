@@ -44,8 +44,8 @@ public class SimpleNumbersFinderImpl implements SimpleNumbersFinder {
     }
 
     private boolean isSimple(int number) {
-        if (number % 2 == 0 &&
-                number != 2) {
+        if (number % 2 == 0
+                && number != 2) {
             return false;
         } else {
             for (Integer simple : getSimplesSet()) {
