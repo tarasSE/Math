@@ -1,4 +1,4 @@
-package com.math.algorithms;
+package com.math.algorithms.string_manipulator;
 
 import java.util.ArrayList;
 import java.util.List;

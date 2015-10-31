@@ -24,9 +24,16 @@
         <processorPath useClasspath="true" />
         <module name="com.taras.serba.math" />
       </profile>
+      <profile default="false" name="Annotation profile for test" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com.taras.serba.math" target="1.7" />
+      <module name="test" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
