@@ -6,8 +6,7 @@ public class ZipStrings {
 
         ZipStrings zipStrings = new ZipStrings();
 
-        String s = "aaabbcccddddddddffffdddddssaassffffddssas";
-
+        String s = "aaabbcccddddd";
 
         System.out.println(s);
 
@@ -17,6 +16,7 @@ public class ZipStrings {
 
     }
 
+    /*complexity is O(n)*/
     public String compressString(final String s) {
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -31,16 +31,17 @@ public class ZipStrings {
 
                 counter++;
 
-            } else {
-
-                stringBuilder.append(lastChar)
-                        .append(counter);
-
-                lastChar = s.charAt(i);
-
-                counter = 1;
+                continue;
 
             }
+
+            stringBuilder.append(lastChar)
+                    .append(counter);
+
+            lastChar = s.charAt(i);
+
+            counter = 1;
+
 
         }
 
@@ -49,7 +50,7 @@ public class ZipStrings {
         return stringBuilder.toString();
     }
 
-    /*complaxity is O(n)*/
+    /*complexity is O(n)*/
     public String compressStringRecursive(final String s) {
 
 
@@ -65,7 +66,7 @@ public class ZipStrings {
 
     }
 
-    private String  compressStringRecursive(final String s,
+    private String compressStringRecursive(final String s,
                                            char lastChar,
                                            int counter,
                                            int charsCounter,
@@ -78,6 +79,7 @@ public class ZipStrings {
             counter++;
 
             compressStringRecursive(s, lastChar, counter, charsCounter, stringBuilder);
+
         } else if (counter != s.length() && lastChar != s.charAt(counter)) {
 
             stringBuilder.append(lastChar)
@@ -90,13 +92,17 @@ public class ZipStrings {
             counter++;
 
             compressStringRecursive(s, lastChar, counter, charsCounter, stringBuilder);
+
         } else if (counter == s.length() - 1) {
 
             stringBuilder.append(charsCounter);
 
             return stringBuilder.toString();
-        }else {
+
+        } else {
+
             stringBuilder.append(lastChar).append(charsCounter);
+
         }
 
         return stringBuilder.toString();
