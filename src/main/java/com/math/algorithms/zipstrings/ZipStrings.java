@@ -14,6 +14,8 @@ public class ZipStrings {
 
         System.out.println(zipStrings.compressStringRecursive(s));
 
+        System.out.println(zipStrings.compressStringRecursiveBeauty(s));
+
     }
 
     /*complexity is O(n)*/
@@ -139,8 +141,7 @@ public class ZipStrings {
 
             return compressStringRecursiveBeauty(s, lastChar, counter, charsCounter, stringBuilder);
 
-        }
-        if (counter != s.length() && lastChar != s.charAt(counter)) {
+        } else if (counter != s.length() && lastChar != s.charAt(counter)) {
 
             stringBuilder.append(lastChar)
                     .append(charsCounter);
@@ -153,17 +154,15 @@ public class ZipStrings {
 
             return compressStringRecursiveBeauty(s, lastChar, counter, charsCounter, stringBuilder);
 
-        }
-        if (counter == s.length() - 1) {
+        } else if (counter == s.length() - 1) {
 
             stringBuilder.append(charsCounter);
 
             return stringBuilder.toString();
 
+        } else {
+            stringBuilder.append(lastChar).append(charsCounter);
         }
-
-        stringBuilder.append(lastChar).append(charsCounter);
-
 
         return stringBuilder.toString();
     }
