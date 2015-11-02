@@ -19,7 +19,7 @@ public class StringManipulatorBench {
 
     @Benchmark
     @Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 100, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 10, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void isStringReverceDiff(){
 
         stringManipulator.isStringsReverse(first, second);
@@ -28,8 +28,8 @@ public class StringManipulatorBench {
 
     @Benchmark
     @Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 100, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    public void isStringReverceSame(){
+    @Measurement(iterations = 10, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    public void isStringReverseSame(){
 
         stringManipulator.isStringsReverse(first, first);
 
@@ -37,7 +37,7 @@ public class StringManipulatorBench {
 
     @Benchmark
     @Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 100, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 10, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void replaceStringSpaces(){
 
         stringManipulator.replaceStringSpaces(second);

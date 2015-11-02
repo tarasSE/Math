@@ -109,4 +109,64 @@ public class ZipStrings {
     }
 
 
+    /*complexity is O(n)*/
+    public String compressStringRecursiveBeauty(final String s) {
+
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        char lastChar = s.charAt(0);
+
+        int counter = 1;
+
+        int charsCounter = 1;
+
+        return compressStringRecursiveBeauty(s, lastChar, counter, charsCounter, stringBuilder);
+
+    }
+
+    private String compressStringRecursiveBeauty(final String s,
+                                                 char lastChar,
+                                                 int counter,
+                                                 int charsCounter,
+                                                 StringBuilder stringBuilder) {
+
+        if (counter != s.length() && lastChar == s.charAt(counter)) {
+
+            charsCounter++;
+
+            counter++;
+
+            return compressStringRecursiveBeauty(s, lastChar, counter, charsCounter, stringBuilder);
+
+        }
+        if (counter != s.length() && lastChar != s.charAt(counter)) {
+
+            stringBuilder.append(lastChar)
+                    .append(charsCounter);
+
+            charsCounter = 1;
+
+            lastChar = s.charAt(counter);
+
+            counter++;
+
+            return compressStringRecursiveBeauty(s, lastChar, counter, charsCounter, stringBuilder);
+
+        }
+        if (counter == s.length() - 1) {
+
+            stringBuilder.append(charsCounter);
+
+            return stringBuilder.toString();
+
+        }
+
+        stringBuilder.append(lastChar).append(charsCounter);
+
+
+        return stringBuilder.toString();
+    }
+
+
 }

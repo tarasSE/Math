@@ -30,7 +30,7 @@ public class OppaLambdaStyleBench {
 
     @Benchmark
     @Warmup(iterations = 2, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10000, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 1, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void printListConservative() {
 
         printList.printListConservative(list);
@@ -39,7 +39,7 @@ public class OppaLambdaStyleBench {
 
     @Benchmark
     @Warmup(iterations = 2, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10000, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 1, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void printListShort() {
 
         printList.printListShort(list);
@@ -48,7 +48,7 @@ public class OppaLambdaStyleBench {
 
     @Benchmark
     @Warmup(iterations = 2, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10000, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 1, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void printListShorter() {
 
         printList.printListShorter(list);
@@ -57,14 +57,14 @@ public class OppaLambdaStyleBench {
 
     @Benchmark
     @Warmup(iterations = 2, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10000, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 1, time = 100, timeUnit = TimeUnit.MILLISECONDS)
     public void printListTheShortest() {
 
         printList.printListTheShortest(list);
 
     }
 
-    public static void main(String[] args) throws RunnerException {
+    public void main(String[] args) throws RunnerException {
         Options optionsBuilder = new OptionsBuilder()
                 .include(OppaLambdaStyleBench.class.getSimpleName())
                 .forks(1)
