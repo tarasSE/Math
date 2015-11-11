@@ -2,11 +2,11 @@ package com.math.algorithms.sorts;
 
 import java.util.Arrays;
 
-public class Sort {
+public class InsertionSort {
 
     public static void main(String[] args) {
 
-        Sort sort = new Sort();
+        InsertionSort insertionSort = new InsertionSort();
 
         int n = 10;
 
@@ -18,7 +18,7 @@ public class Sort {
 
         System.out.println(Arrays.toString(array));
 
-        sort.insertionSort(array);
+        insertionSort.insertionSort(array);
 
         System.out.println(Arrays.toString(array));
 
